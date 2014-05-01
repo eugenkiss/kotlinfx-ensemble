@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+apply plugin: "kotlin"
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
+    mavenLocal()
+    maven {
+        url 'http://eugenkiss.github.io/kotlinfx/repository'
+    }
+}
+dependencies {
+    compile 'org.apache.lucene:lucene-core:3.2.0'
+    compile 'org.apache.lucene:lucene-grouping:3.2.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "kotlinfx:kotlinfx:0.1-SNAPSHOT"
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
